@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "com.smushytaco.expanded_trident_enchanting.mixins",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "TridentsCanHaveFireAspect",
+    "TridentsCanHaveKnockback",
+    "TridentsCanHaveLooting",
+    "TridentsCanHaveOtherWeaponEnchantmentTypes"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
