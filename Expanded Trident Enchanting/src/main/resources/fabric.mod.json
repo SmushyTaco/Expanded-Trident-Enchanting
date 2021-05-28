@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "expanded_trident_enchanting",
+  "version": "${version}",
+  "name": "Expanded Trident Enchanting",
+  "description": "This mod allows you to use Fire Aspect, Knockback, Looting, and all other sword enchantment types on a trident.",
+  "authors": [
+    "SmushyTaco"
+  ],
+  "contact": {
+    "homepage": "https://www.smushytaco.com/",
+    "issues": "https://www.curseforge.com/minecraft/mc-mods/expanded-trident-enchanting/issues/",
+    "sources": "https://github.com/realSmushyTaco/Expanded-Trident-Enchanting/"
+  },
+  "license": "GNU Lesser General Public License version 3 (LGPLv3)",
+  "icon": "assets/expanded_trident_enchanting/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "com.smushytaco.expanded_trident_enchanting.ExpandedTridentEnchanting"
+      }
+    ],
+    "modmenu": [
+      "com.smushytaco.expanded_trident_enchanting.configuration_support.ModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "expanded_trident_enchanting.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "fabric-language-kotlin": ">=1.6.0+kotlin.1.5.0",
+    "minecraft": "1.16.x",
+    "cloth-config2": ">=4.11.24"
+  },
+  "suggests": {
+    "modmenu": ">=1.14.13+build.22"
+  }
+}
