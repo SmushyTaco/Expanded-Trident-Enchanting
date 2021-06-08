@@ -7,7 +7,7 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.TridentItem;
 import org.spongepowered.asm.mixin.Mixin;
-@Mixin(LuckEnchantment.class)
+@Mixin(value = LuckEnchantment.class, priority = 1001)
 public abstract class TridentsCanHaveLooting extends Enchantment {
     protected TridentsCanHaveLooting(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);

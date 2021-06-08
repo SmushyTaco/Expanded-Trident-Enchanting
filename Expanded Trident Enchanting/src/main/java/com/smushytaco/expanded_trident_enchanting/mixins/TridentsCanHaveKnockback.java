@@ -7,7 +7,7 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.TridentItem;
 import org.spongepowered.asm.mixin.Mixin;
-@Mixin(KnockbackEnchantment.class)
+@Mixin(value = KnockbackEnchantment.class, priority = 1001)
 public abstract class TridentsCanHaveKnockback extends Enchantment {
     protected TridentsCanHaveKnockback(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
