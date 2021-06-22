@@ -30,7 +30,7 @@
     "expanded_trident_enchanting.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.11.3",
+    "fabricloader": ">=0.11.6",
     "fabric": "*",
     "fabric-language-kotlin": ">=1.6.1+kotlin.1.5.10",
     "minecraft": "1.17.x",

@@ -3,9 +3,7 @@
   "package": "com.smushytaco.expanded_trident_enchanting.mixins",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
-    "TridentsCanHaveFireAspect",
-    "TridentsCanHaveKnockback",
-    "TridentsCanHaveLooting",
+    "TridentModification",
     "TridentsCanHaveOtherWeaponEnchantmentTypes"
   ],
   "injectors": {
