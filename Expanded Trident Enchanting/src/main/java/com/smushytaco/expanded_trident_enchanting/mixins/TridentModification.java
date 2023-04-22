@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class TridentModification {
     @Shadow
     @Final
-    public EnchantmentTarget type;
+    public EnchantmentTarget target;
     @Inject(method = "isAcceptableItem", at = @At("HEAD"), cancellable = true)
     public void isAcceptableItem(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
         Enchantment enchantment = (Enchantment) (Object) this;
@@ -25,7 +25,7 @@ public abstract class TridentModification {
             if (!ExpandedTridentEnchanting.INSTANCE.getConfig().getCanUseKnockbackOnTrident() || !(stack.getItem() instanceof TridentItem)) return;
             cir.setReturnValue(true);
         }  else if (enchantment instanceof LuckEnchantment) {
-            if (!ExpandedTridentEnchanting.INSTANCE.getConfig().getCanUseLootingOnTrident() || type != EnchantmentTarget.WEAPON || !(stack.getItem() instanceof TridentItem)) return;
+            if (!ExpandedTridentEnchanting.INSTANCE.getConfig().getCanUseLootingOnTrident() || target != EnchantmentTarget.WEAPON || !(stack.getItem() instanceof TridentItem)) return;
             cir.setReturnValue(true);
         }
     }
