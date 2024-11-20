@@ -3,5 +3,9 @@
   "text.autoconfig.expanded_trident_enchanting.option.canUseFireAspectOnTrident": "Can Use Fire Aspect On Trident",
   "text.autoconfig.expanded_trident_enchanting.option.canUseKnockbackOnTrident": "Can Use Knockback On Trident",
   "text.autoconfig.expanded_trident_enchanting.option.canUseLootingOnTrident": "Can Use Looting On Trident",
-  "text.autoconfig.expanded_trident_enchanting.option.canUseOtherWeaponEnchantmentTypesOnTrident": "Can Use Other Weapon Enchantment Types On Trident"
+  "text.autoconfig.expanded_trident_enchanting.option.canUseDensityOnTrident": "Can Use Density On Trident",
+  "text.autoconfig.expanded_trident_enchanting.option.canUseBreachOnTrident": "Can Use Breach On Trident",
+  "text.autoconfig.expanded_trident_enchanting.option.canUseWindBurstOnTrident": "Can Use Wind Burst On Trident",
+  "text.autoconfig.expanded_trident_enchanting.option.canUseOtherWeaponEnchantmentTypesOnTrident": "Can Use Other Weapon Enchantment Types On Trident",
+  "text.autoconfig.expanded_trident_enchanting.option.impalingAndOtherWeaponEnchantmentTypesCanBeMixed": "Impaling And Other Weapon Enchantment Types Can Be Mixed"
 }
