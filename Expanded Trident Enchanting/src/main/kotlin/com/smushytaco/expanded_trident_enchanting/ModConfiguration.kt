@@ -1,5 +1,6 @@
 package com.smushytaco.expanded_trident_enchanting
-import io.wispforest.owo.config.annotation.*
+import io.wispforest.owo.config.annotation.Config
+import io.wispforest.owo.config.annotation.Modmenu
 @Modmenu(modId = ExpandedTridentEnchanting.MOD_ID)
 @Config(name = ExpandedTridentEnchanting.MOD_ID, wrapperName = "ModConfig")
 @Suppress("UNUSED")

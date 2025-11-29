@@ -1,16 +1,17 @@
 package com.smushytaco.expanded_trident_enchanting.mixins;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.smushytaco.expanded_trident_enchanting.ExpandedTridentEnchanting;
-import net.minecraft.enchantment.*;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.TridentItem;
-import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.core.Holder;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TridentItem;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import java.util.Set;
 @Mixin(Enchantment.class)
 public abstract class TridentModification {
-    @ModifyReturnValue(method = "isAcceptableItem", at = @At("RETURN"))
+    @ModifyReturnValue(method = "canEnchant", at = @At("RETURN"))
     public boolean isAcceptableItem(boolean original, ItemStack stack) {
         Enchantment enchantment = (Enchantment) (Object) this;
         if (ExpandedTridentEnchanting.INSTANCE.isSameEnchantment(enchantment, Enchantments.FIRE_ASPECT)) {
@@ -37,6 +38,6 @@ public abstract class TridentModification {
         }
         return original;
     }
-    @ModifyReturnValue(method = "canBeCombined", at = @At("RETURN"))
-    private static boolean hookCanBeCombined(boolean original, RegistryEntry<Enchantment> first, RegistryEntry<Enchantment> second) { return original || ExpandedTridentEnchanting.INSTANCE.getConfig().getImpalingAndOtherWeaponEnchantmentTypesCanBeMixed() && (ExpandedTridentEnchanting.INSTANCE.canCombineEnchantments(first, second, Set.of(Enchantments.IMPALING, Enchantments.SMITE)) || ExpandedTridentEnchanting.INSTANCE.canCombineEnchantments(first, second, Set.of(Enchantments.IMPALING, Enchantments.BANE_OF_ARTHROPODS)) || ExpandedTridentEnchanting.INSTANCE.canCombineEnchantments(first, second, Set.of(Enchantments.IMPALING, Enchantments.SHARPNESS))); }
+    @ModifyReturnValue(method = "areCompatible", at = @At("RETURN"))
+    private static boolean hookCanBeCombined(boolean original, Holder<Enchantment> first, Holder<Enchantment> second) { return original || ExpandedTridentEnchanting.INSTANCE.getConfig().getImpalingAndOtherWeaponEnchantmentTypesCanBeMixed() && (ExpandedTridentEnchanting.INSTANCE.canCombineEnchantments(first, second, Set.of(Enchantments.IMPALING, Enchantments.SMITE)) || ExpandedTridentEnchanting.INSTANCE.canCombineEnchantments(first, second, Set.of(Enchantments.IMPALING, Enchantments.BANE_OF_ARTHROPODS)) || ExpandedTridentEnchanting.INSTANCE.canCombineEnchantments(first, second, Set.of(Enchantments.IMPALING, Enchantments.SHARPNESS))); }
 }
