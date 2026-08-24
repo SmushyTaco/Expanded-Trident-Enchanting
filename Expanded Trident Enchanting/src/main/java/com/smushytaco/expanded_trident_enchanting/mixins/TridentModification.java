@@ -12,32 +12,32 @@ import java.util.Set;
 @Mixin(Enchantment.class)
 public abstract class TridentModification {
     @ModifyReturnValue(method = "canEnchant", at = @At("RETURN"))
-    public boolean isAcceptableItem(boolean original, ItemStack stack) {
+    public boolean isAcceptableItem(boolean original, ItemStack itemStack) {
         Enchantment enchantment = (Enchantment) (Object) this;
         if (ExpandedTridentEnchanting.INSTANCE.isSameEnchantment(enchantment, Enchantments.FIRE_ASPECT)) {
-            if (!ExpandedTridentEnchanting.INSTANCE.getConfig().getCanUseFireAspectOnTrident() || !(stack.getItem() instanceof TridentItem)) return original;
+            if (!ExpandedTridentEnchanting.INSTANCE.getConfig().getCanUseFireAspectOnTrident() || !(itemStack.getItem() instanceof TridentItem)) return original;
             return true;
         } else if (ExpandedTridentEnchanting.INSTANCE.isSameEnchantment(enchantment, Enchantments.KNOCKBACK)) {
-            if (!ExpandedTridentEnchanting.INSTANCE.getConfig().getCanUseKnockbackOnTrident() || !(stack.getItem() instanceof TridentItem)) return original;
+            if (!ExpandedTridentEnchanting.INSTANCE.getConfig().getCanUseKnockbackOnTrident() || !(itemStack.getItem() instanceof TridentItem)) return original;
             return true;
         } else if (ExpandedTridentEnchanting.INSTANCE.isSameEnchantment(enchantment, Enchantments.LOOTING)) {
-            if (!ExpandedTridentEnchanting.INSTANCE.getConfig().getCanUseLootingOnTrident() || !(stack.getItem() instanceof TridentItem)) return original;
+            if (!ExpandedTridentEnchanting.INSTANCE.getConfig().getCanUseLootingOnTrident() || !(itemStack.getItem() instanceof TridentItem)) return original;
             return true;
         } else if (ExpandedTridentEnchanting.INSTANCE.isSameEnchantment(enchantment, Enchantments.DENSITY)) {
-            if (!ExpandedTridentEnchanting.INSTANCE.getConfig().getCanUseDensityOnTrident() || !(stack.getItem() instanceof TridentItem)) return original;
+            if (!ExpandedTridentEnchanting.INSTANCE.getConfig().getCanUseDensityOnTrident() || !(itemStack.getItem() instanceof TridentItem)) return original;
             return true;
         } else if (ExpandedTridentEnchanting.INSTANCE.isSameEnchantment(enchantment, Enchantments.BREACH)) {
-            if (!ExpandedTridentEnchanting.INSTANCE.getConfig().getCanUseBreachOnTrident() || !(stack.getItem() instanceof TridentItem)) return original;
+            if (!ExpandedTridentEnchanting.INSTANCE.getConfig().getCanUseBreachOnTrident() || !(itemStack.getItem() instanceof TridentItem)) return original;
             return true;
         } else if (ExpandedTridentEnchanting.INSTANCE.isSameEnchantment(enchantment, Enchantments.WIND_BURST)) {
-            if (!ExpandedTridentEnchanting.INSTANCE.getConfig().getCanUseWindBurstOnTrident() || !(stack.getItem() instanceof TridentItem)) return original;
+            if (!ExpandedTridentEnchanting.INSTANCE.getConfig().getCanUseWindBurstOnTrident() || !(itemStack.getItem() instanceof TridentItem)) return original;
             return true;
         } else if (ExpandedTridentEnchanting.INSTANCE.isSameEnchantment(enchantment, Enchantments.SHARPNESS) || ExpandedTridentEnchanting.INSTANCE.isSameEnchantment(enchantment, Enchantments.SMITE) || ExpandedTridentEnchanting.INSTANCE.isSameEnchantment(enchantment, Enchantments.BANE_OF_ARTHROPODS)) {
-            if (!ExpandedTridentEnchanting.INSTANCE.getConfig().getCanUseOtherWeaponEnchantmentTypesOnTrident() || !(stack.getItem() instanceof TridentItem)) return original;
+            if (!ExpandedTridentEnchanting.INSTANCE.getConfig().getCanUseOtherWeaponEnchantmentTypesOnTrident() || !(itemStack.getItem() instanceof TridentItem)) return original;
             return true;
         }
         return original;
     }
     @ModifyReturnValue(method = "areCompatible", at = @At("RETURN"))
-    private static boolean hookCanBeCombined(boolean original, Holder<Enchantment> first, Holder<Enchantment> second) { return original || ExpandedTridentEnchanting.INSTANCE.getConfig().getImpalingAndOtherWeaponEnchantmentTypesCanBeMixed() && (ExpandedTridentEnchanting.INSTANCE.canCombineEnchantments(first, second, Set.of(Enchantments.IMPALING, Enchantments.SMITE)) || ExpandedTridentEnchanting.INSTANCE.canCombineEnchantments(first, second, Set.of(Enchantments.IMPALING, Enchantments.BANE_OF_ARTHROPODS)) || ExpandedTridentEnchanting.INSTANCE.canCombineEnchantments(first, second, Set.of(Enchantments.IMPALING, Enchantments.SHARPNESS))); }
+    private static boolean hookCanBeCombined(boolean original, Holder<Enchantment> enchantment, Holder<Enchantment> other) { return original || ExpandedTridentEnchanting.INSTANCE.getConfig().getImpalingAndOtherWeaponEnchantmentTypesCanBeMixed() && (ExpandedTridentEnchanting.INSTANCE.canCombineEnchantments(enchantment, other, Set.of(Enchantments.IMPALING, Enchantments.SMITE)) || ExpandedTridentEnchanting.INSTANCE.canCombineEnchantments(enchantment, other, Set.of(Enchantments.IMPALING, Enchantments.BANE_OF_ARTHROPODS)) || ExpandedTridentEnchanting.INSTANCE.canCombineEnchantments(enchantment, other, Set.of(Enchantments.IMPALING, Enchantments.SHARPNESS))); }
 }
